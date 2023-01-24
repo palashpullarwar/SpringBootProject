@@ -2,11 +2,9 @@ package game.play.eGround.globalExceptions;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-
 import game.play.eGround.errorResponse.ErrorResponse;
 import game.play.eGround.exceptions.AlreadyExistsException;
 import game.play.eGround.exceptions.ResourceNotFoundException;
