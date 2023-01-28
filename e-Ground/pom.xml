@@ -9,7 +9,8 @@
 		<version>2.7.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>store.eground</groupId>
+	<groupId>store.e-Ground</groupId>
+
 	<artifactId>e-Ground</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>e-Ground</name>
@@ -27,31 +28,33 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-spring-boot-starter</artifactId>
 			<version>15.0.2</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 		</dependency>
-		
-<!-- 		<dependency>
+
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency> -->
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>6.1.5.Final</version>
 			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
@@ -73,18 +76,21 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>io.nats</groupId>
+			<artifactId>jnats</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency> -->
+
 	</dependencies>
-<!-- 	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.keycloak.bom</groupId>
-				<artifactId>keycloak-adapter-bom</artifactId>
-				<version>15.0.2</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement> -->
+	<!-- <dependencyManagement> <dependencies> <dependency> <groupId>org.keycloak.bom</groupId> 
+		<artifactId>keycloak-adapter-bom</artifactId> <version>15.0.2</version> <type>pom</type> 
+		<scope>import</scope> </dependency> </dependencies> </dependencyManagement> -->
 	<build>
 		<plugins>
 			<plugin>

@@ -1,5 +1,6 @@
 package game.play.eGround.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -20,10 +21,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class User {
+public class User implements Serializable{
    @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
-	private int Id;
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	@Column
 	private String userName;
 	@Column
