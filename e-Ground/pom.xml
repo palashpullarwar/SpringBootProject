@@ -10,6 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>store.e-Ground</groupId>
+
 	<artifactId>e-Ground</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>e-Ground</name>
