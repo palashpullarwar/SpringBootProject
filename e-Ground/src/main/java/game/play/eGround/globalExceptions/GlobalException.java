@@ -20,7 +20,7 @@ public class GlobalException {
 		ex.printStackTrace();
 		List<String> details = new ArrayList<>();
 		details.add(ex.getMessage());
-		ErrorResponse error = new ErrorResponse("User does not exists", details);
+		ErrorResponse error = new ErrorResponse("Resource does not exists", details);
 		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
 
 	}
@@ -31,7 +31,7 @@ public class GlobalException {
 		ex.printStackTrace();
 		List<String> details = new ArrayList<>();
 		details.add(ex.getMessage());
-		ErrorResponse error = new ErrorResponse("User already exists", details);
+		ErrorResponse error = new ErrorResponse("Resource already exists", details);
 		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 
 	}

@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -40,7 +41,8 @@ public class User implements Serializable{
 	private String firstName;
 	@Column
 	private String lastName;
-	@Column
+	@Column(nullable = false, unique = true)
+	@Email
 	private String email;
 	@Column
 	private String password; 
@@ -52,6 +54,13 @@ public class User implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Games> games;
+
+	@Override
+	public String toString() {
+		return "User [userName=" + userName + "]";
+	}
+	
+	
     
 	
 }

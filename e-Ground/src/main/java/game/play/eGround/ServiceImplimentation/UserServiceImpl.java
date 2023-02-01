@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import game.play.eGround.ServiceImplimentation.services.UserService;
 import game.play.eGround.ServiceImplimentation.services.userDao.UserRepository;
+import game.play.eGround.dto.LoginDTO;
 import game.play.eGround.entity.User;
 import game.play.eGround.exceptions.AlreadyExistsException;
 import game.play.eGround.exceptions.ResourceNotFoundException;
@@ -74,5 +75,19 @@ public class UserServiceImpl implements UserService{
 	public void deleteUser(int userId) {
 		userRepo.deleteById(userId);
 	}
+
+	@Override
+	public User login(LoginDTO userLogin) {
+		
+		User user = userRepo.findByEmailAndPassword(userLogin.getEmail(), userLogin.getPassword());
+		if(user != null) {
+			return user;
+		}else {
+			throw new ResourceNotFoundException("User not found");
+		}
+	
+	}
+	
+	
 	
 }

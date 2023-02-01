@@ -10,5 +10,9 @@ public interface GameService {
 	
 	public Games addGame(Games game);
 
+	public Games getGameById(int gameId);
 	
+	public Games updateGameDetails(Games game);
+	
+	public void deleteGame(int gameId);
 }

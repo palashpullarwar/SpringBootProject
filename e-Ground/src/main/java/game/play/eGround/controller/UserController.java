@@ -1,7 +1,12 @@
 package game.play.eGround.controller;
 
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import game.play.eGround.ServiceImplimentation.services.UserService;
+import game.play.eGround.dto.LoginDTO;
 import game.play.eGround.entity.User;
 import game.play.eGround.exceptions.ResourceNotFoundException;
 
@@ -54,6 +60,30 @@ public class UserController {
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	  }
+	  
+	  @PostMapping("/login")
+	  public ResponseEntity<?> login(@RequestBody LoginDTO login, HttpServletRequest request){
+		
+		  User user = userService.login(login);
+		  System.out.println(request.getSession().toString());
+		  System.out.println(user.toString() + "777777777777777777777777777");
+		  request.setAttribute("user", user);
+		  return ResponseEntity.ok(user);  
+		  
+	  }
+	  
+	  @GetMapping("/logout")
+	  public ResponseEntity<?> logout(HttpServletRequest request){
+		  
+		  User u = (User) request.getAttribute("user");
+		  System.out.println(request.getSession().toString());
+		   
+		  //Invalidating session to logout
+		  request.getSession().invalidate();
+		  System.out.println(request.getSession().toString() + "pppppppppppppppppppppppppppppppppppppp");
+		  return ResponseEntity.ok(u);  
+		  
 	  }
 	
 }
